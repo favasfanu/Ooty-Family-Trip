@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>Kerala → Ooty Day Trip</title>
+<style>
+  :root{--teal:#0f766e;--orange:#f97316;--ink:#1f2937;--bg:#f0fdf4}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(135deg,#0f766e,#16a34a 60%,#facc15);color:#fff;padding:28px 18px 22px;text-align:center}
+  header h1{font-size:1.7rem}
+  header p{opacity:.95;margin-top:6px}
+  .btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .btn{display:inline-block;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem}
+  .btn.primary{background:var(--orange);color:#fff}
+  .btn.light{background:#fff;color:var(--teal)}
+  main{max-width:720px;margin:0 auto;padding:16px}
+  .note{background:#fff7ed;border-left:5px solid var(--orange);padding:12px 14px;border-radius:10px;margin-bottom:18px;font-size:.95rem}
+  .card{background:#fff;border-radius:18px;overflow:hidden;margin-bottom:18px;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:.2s}
+  .card.now{outline:4px solid var(--orange)}
+  .banner{height:140px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;background-size:cover;background-position:center}
+  .banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .time{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;font-size:.8rem;padding:4px 10px;border-radius:999px;z-index:2}
+  .body{padding:14px 16px 16px}
+  .body h2{font-size:1.15rem;margin-bottom:2px}
+  .meta{color:#6b7280;font-size:.85rem;margin-bottom:8px}
+  .body p{font-size:.95rem}
+  .map{display:inline-block;margin-top:12px;background:var(--teal);color:#fff;text-decoration:none;padding:9px 14px;border-radius:10px;font-weight:600;font-size:.9rem}
+  .g1{background:linear-gradient(135deg,#1e3a8a,#312e81)}
+  .g2{background:linear-gradient(135deg,#fb923c,#f43f5e)}
+  .g3{background:linear-gradient(135deg,#38bdf8,#2563eb)}
+  .g4{background:linear-gradient(135deg,#a3e635,#16a34a)}
+  .g5{background:linear-gradient(135deg,#facc15,#f97316)}
+  .g6{background:linear-gradient(135deg,#22d3ee,#0d9488)}
+  .g7{background:linear-gradient(135deg,#4ade80,#15803d)}
+  .g8{background:linear-gradient(135deg,#f472b6,#a855f7)}
+  .g9{background:linear-gradient(135deg,#64748b,#0f172a)}
+  h3.sec{margin:26px 0 10px;color:var(--teal)}
+  ul.tips{background:#fff;border-radius:14px;padding:14px 16px 14px 34px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  ul.tips li{margin:6px 0}
+  footer{text-align:center;color:#6b7280;font-size:.85rem;padding:24px 16px 40px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌄 Kerala → Ooty Day Trip</h1>
+  <p>Kedavur • Pykara • Ooty • Back the same night</p>
+  <div class="btn-row">
+    <a class="btn primary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Kedavur,Kerala&destination=Government+Botanical+Garden,Ooty&waypoints=Pykara+Waterfall|Pykara+Lake+Boat+House|9th+Mile+Shooting+Spot+Ooty|Pine+Forest+Ooty|Kamaraj+Sagar+Dam&travelmode=driving">🚗 Start Full Route in Maps</a>
+    <a class="btn light" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kedavur,Kerala">📍 Start Point</a>
+  </div>
+</header>
+
+<main>
+  <div class="note">⏰ <b>Timing tip:</b> Pykara Waterfall opens around <b>8:30 AM</b>, but the Boat House counter opens around <b>10:00 AM</b>. Visit the waterfall first so nobody waits at the gate.</div>
+
+  <div id="stops"></div>
+
+  <h3 class="sec">🎒 Quick Tips</h3>
+  <ul class="tips">
+    <li>Carry a jacket or sweater. Ooty is cold, especially in the evening.</li>
+    <li>Keep cash handy for boat tickets, parking and horse rides.</li>
+    <li>Fill up fuel and take a rest before the night drive back.</li>
+    <li>Share live location with family on the return drive.</li>
+    <li>Opening times can change, so check on the day.</li>
+  </ul>
+</main>
+
+<footer>Happy journey! 🌿 Plan shared for family use.</footer>
+
+<script>
+const q = s => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(s);
+
+// start/end in 24h "HH:MM" (used to highlight the current stop)
+const stops = [
+ {t:"2:00 – 6:30 AM", s:"02:00", e:"06:30", icon:"🌙", g:"g1", img:"night-drive", name:"Kedavur → Pykara Ghats", meta:"🚗 4 hrs 30 mins drive", desc:"Night drive via SH29. Traffic-free ascent.", place:"Pykara Ghats, Tamil Nadu"},
+ {t:"6:30 – 7:30 AM", s:"06:30", e:"07:30", icon:"🌅", g:"g2", img:"sunrise", name:"Sunrise & Refreshment Break", meta:"⏱ 1 hr", desc:"Fresh-up stop at a highway diner.", place:"restaurants near Masinagudi, Nilgiris"},
+ {t:"7:30 – 8:30 AM", s:"07:30", e:"08:30", icon:"🍽️", g:"g5", img:"breakfast", name:"Breakfast", meta:"⏱ 1 hr", desc:"Hot South Indian breakfast.", place:"breakfast restaurants near Pykara, Ooty"},
+ {t:"8:45 – 10:00 AM", s:"08:45", e:"10:00", icon:"💧", g:"g3", img:"pykara-waterfall", name:"Pykara Waterfall", meta:"⏱ 1 hr 15 mins • ~15 min drive", desc:"Cascades surrounded by shola forest. Battery golf carts are available from the parking area for elders and kids.", place:"Pykara Waterfall, Ooty"},
+ {t:"10:15 AM – 12:15 PM", s:"10:15", e:"12:15", icon:"🚤", g:"g6", img:"boat-house", name:"Pykara Lake Boat House", meta:"⏱ 2 hrs • ~15 min drive", desc:"Speedboats and motorboats right as the counter opens. Arrive early to beat tour buses.", place:"Pykara Lake Boat House, Ooty"},
+ {t:"12:30 – 2:30 PM", s:"12:30", e:"14:30", icon:"⛰️", g:"g4", img:"9th-mile", name:"9th Mile Shooting Spot + Lunch", meta:"⏱ 2 hrs • ~15 min drive", desc:"Walk up the grassy hills for wide valley views, then lunch at a nearby restaurant.", place:"9th Mile Shooting Spot, Ooty"},
+ {t:"2:40 – 3:40 PM", s:"14:40", e:"15:40", icon:"🌲", g:"g7", img:"pine-forest", name:"Pine Forest Ooty", meta:"⏱ 1 hr • ~10 min drive", desc:"Shaded pine canopy stroll. Short horse rides near the gate.", place:"Pine Forest, Ooty"},
+ {t:"3:50 – 4:35 PM", s:"15:50", e:"16:35", icon:"🏞️", g:"g6", img:"kamaraj-sagar", name:"Kamaraj Sagar Dam", meta:"⏱ 45 mins • ~10 min drive", desc:"Flat, quiet walk along the reservoir. Easy on the legs.", place:"Kamaraj Sagar Dam, Sandynallah, Ooty"},
+ {t:"4:50 – 6:15 PM", s:"16:50", e:"18:15", icon:"🌺", g:"g8", img:"botanical-garden", name:"Government Botanical Garden", meta:"⏱ 1 hr 25 mins • ~15 min drive", desc:"55 acres of terraced lawns, a glasshouse, and evening mountain air.", place:"Government Botanical Garden, Ooty"},
+ {t:"6:15 – 7:15 PM", s:"18:15", e:"19:15", icon:"🛍️", g:"g5", img:"market", name:"Ooty Town & Local Markets", meta:"⏱ 1 hr", desc:"Homemade chocolates, Nilgiri tea, eucalyptus oil and Ooty varkey. Try Commercial Road.", place:"Commercial Road, Ooty"},
+ {t:"7:15 – 11:30 PM", s:"19:15", e:"23:30", icon:"🏠", g:"g9", img:"return", name:"Return Drive to Kedavur", meta:"🚗 4 hrs 15 mins • via Gudalur", desc:"Dinner stop around Gudalur or Nilambur. Drive safe!", place:"Kedavur, Kerala", dir:true}
+];
+
+const wrap = document.getElementById("stops");
+stops.forEach((x,i)=>{
+  const link = x.dir
+    ? "https://www.google.com/maps/dir/?api=1&origin=Ooty&destination=Kedavur,Kerala&waypoints=Gudalur&travelmode=driving"
+    : q(x.place);
+  wrap.insertAdjacentHTML("beforeend",`
+  <div class="card" data-s="${x.s}" data-e="${x.e}">
+    <div class="banner ${x.g}">
+      <span>${x.icon}</span>
+      <img src="images/${x.img}.jpg" alt="${x.name}" loading="lazy" onerror="this.remove()">
+      <span class="time">${x.t}</span>
+    </div>
+    <div class="body">
+      <h2>${i+1}. ${x.name}</h2>
+      <div class="meta">${x.meta}</div>
+      <p>${x.desc}</p>
+      <a class="map" target="_blank" rel="noopener" href="${link}">📍 ${x.dir?"Get Directions":"Open in Maps"}</a>
+    </div>
+  </div>`);
+});
+
+// Highlight the current stop (India time) on the trip day
+function mins(h){const [a,b]=h.split(":");return +a*60+ +b}
+function mark(){
+  const ist = new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"}));
+  const n = ist.getHours()*60+ist.getMinutes();
+  document.querySelectorAll(".card").forEach(c=>{
+    c.classList.toggle("now", n>=mins(c.dataset.s) && n<mins(c.dataset.e));
+  });
+}
+mark(); setInterval(mark,60000);
+</script>
+</body>
+</html>
